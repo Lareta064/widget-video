@@ -1,0 +1,45 @@
+.vw
+	.vw__close +
+	video#vw-video(autoplay muted loop)
+		source(src="./video/video.mp4" type="video/mp4")
+	script.
+		const vw =document.querySelector('.vw');
+		if(vw){
+		
+			const vwContent =vw.querySelector('#vw-video');
+			const vwClose =vw.querySelector('.vw__close');
+			vw.addEventListener('click', function(e){
+				e.preventDefault();
+				if(e.target != vwClose){
+				
+					if(vw.classList.contains('vw--open')){
+						this.classList.remove('vw--open');
+						vwContent.muted = true;
+						vwContent.controls = false;
+						vwContent.loop = true;
+						
+					}else{
+						this.classList.add('vw--open');
+						vwContent.controls = true;
+						vwContent.muted=false;
+						vwContent.loop = false;
+					}
+
+				}else{
+					e.stopPropagation();
+					this.remove();
+				}
+			});
+			vwContent.addEventListener('ended', function(){
+				vw.classList.remove('vw--open');
+				vwContent.load();
+				vwContent.muted = true;
+				vwContent.controls = false;
+				vwContent.loop = true;
+			});
+			
+			
+			//- vwClose.addEventListener('click',function(e){
+				
+			//- });
+		}
