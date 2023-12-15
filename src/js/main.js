@@ -29,35 +29,69 @@ if (vidWidget){
 			e.preventDefault();
 			
 			if (e.target != vwClose) {
-				if(){}
-			
-				if (vw.classList.contains('vw--open')) {
-					if (e.target != collapseBtn){
-						vwContent.pause();
-					}else{
-						this.classList.remove('vw--open');
-						vwContent.muted = true;
-						vwContent.controls = false;
-						vwContent.loop = true;
+				const attrPoster = vwContent.getAttribute('poster');
+				console.log(attrPoster);
+				if (attrPoster != null){
+					if (vw.classList.contains('vw--open')) {
+						if (e.target != collapseBtn) {	
+							if (vwContent.paused) { 
+								vwContent.play(); 
+								vwContent.muted = false; 
+							}						
+							else { vwContent.pause(); vwContent.muted = true; }	
+							
+						} else {
+							this.classList.remove('vw--open');
+							vwContent.muted = true;
+							vwContent.controls = false;
+							vwContent.pause();
+							vwContent.load();
+							vwContent.currentTime = 0;
+							
+						}
+					} else {
 
-						const previewSrc = vwContent.getAttribute('data-preview');
-						vwContent.src = previewSrc;
-						console.log(vwContent.src);
-						if(!previewSrc) return;
+						this.classList.add('vw--open');
+						vwContent.controls = true;
+						vwContent.play();
 						
-
-					}
-				} else {
-					
-					this.classList.add('vw--open');
-					vwContent.controls = true;
-					vwContent.muted = false;
-					vwContent.loop = false;
-
-					const fullSrc = e.target.getAttribute('data-src');
-					if (!fullSrc)return;
-					e.target.src = fullSrc;
+					}					
 				}
+				else{
+					
+					if (vw.classList.contains('vw--open')) {
+						if (e.target != collapseBtn){
+							if (vwContent.paused) {
+								vwContent.play();
+								
+							}
+							else { vwContent.pause(); }	
+						}else{
+							this.classList.remove('vw--open');
+							vwContent.muted = true;
+							vwContent.controls = false;
+							vwContent.loop = true;
+
+							const previewSrc = vwContent.getAttribute('data-preview');
+							vwContent.src = previewSrc;
+							
+							if(!previewSrc) return;
+							
+
+						}
+					} else {
+						
+						this.classList.add('vw--open');
+						vwContent.controls = true;
+						vwContent.muted = false;
+						vwContent.loop = false;
+
+						const fullSrc = e.target.getAttribute('data-src');
+						if (!fullSrc)return;
+						e.target.src = fullSrc;
+					}
+				}
+				
  			}
 
 		});
