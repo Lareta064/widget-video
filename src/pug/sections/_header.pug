@@ -1,3 +1,29 @@
+.video-widget
+	
+	//===== widget  youtub link =======
+	//- .vwy-wrapper
+	//- 	.video-widget__close
+	//- 	a(href="https://www.youtube.com/watch?v=qfglAdstYBs" target="_blank" style="background-image: url(./img/cat.webp)").vwy
+	//- 		.vwy__btn
+	//- 			span
+	//- 			.lds-dual-ring
+			
+
+	//===== widget mp4 =========
+	.vw
+		.video-widget__close.vw__close
+		.video__collapse
+		//=========  если пользователь добавляет превью в виде gif (есть атрибут poster  у тега video)
+		video#vw-video( src="./video/video.mp4" type="video/mp4"  muted loop preload="auto" playsinline poster="https://img.freepik.com/free-photo/adorable-looking-kitten-with-yarn_23-2150886292.jpg?size=626&ext=jpg")
+			
+		
+		//=========  если пользователь добавляет превью в виде короткого mp4 (нет атрибута poster, но появляется атрибут data-src  в который прописан путь до полного видео, а в атрибут src   и  data-preview вписан путь до короткого видео-превью )
+		//- video#vw-video(
+		//- 	src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
+		//- 	data-preview="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
+		//- 	data-src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/video.mp4"  
+		//- 	type="video/mp4" 
+		//- 	autoplay muted loop preload="auto" playsinline)
 .aw-wrapper
 	.aw
 		.aw__close
@@ -35,7 +61,15 @@
 		
 		.aw-modal(frame-modal="aw-download")
 			.aw-modal__content
-				h1 test 222
+				.aw-modal__close(frame-close) +
+				.aw-modal__title Кликните, что бы скачать
+				.aw-modal__inner
+					a(href="./downl/doc1.pdf").dwnl-plate
+						p название документа для скачивания
+					a(href="./downl/doc1.pdf").dwnl-plate
+						p название документа для скачивания
+					a(href="./downl/doc1.pdf").dwnl-plate
+						p название документа для скачивания
 
 	script.
 	
@@ -94,65 +128,6 @@
 			}
 		}
 
-//===== widget 2 =========
-.vwy-wrapper
-	button(type="button").vwy__close +	
-	a(href="https://www.youtube.com/watch?v=qfglAdstYBs" target="_blank" style="background-image: url(./img/cat.webp)").vwy
-		.vwy__btn
-			span
-			.lds-dual-ring
-		
-script.
-	const vwy =document.querySelector('.vwy-wrapper');
-	if(vwy){
-		vwy.querySelector('.vwy__close').addEventListener('click', function(e){
-			vwy.remove();
-		});
-	}
 
-//===== widget 1 =========
-.vw
-	button(type="button").vw__close +
-	video#vw-video(autoplay muted loop preload="auto" playsinline)
-		source(src="./video/video.mp4" type="video/mp4")
-	script.
-		const vw =document.querySelector('.vw');
-		if(vw){
-		
-			const vwContent =vw.querySelector('#vw-video');
-			const vwClose =vw.querySelector('.vw__close');
-			vw.addEventListener('click', function(e){
-				e.preventDefault();
-				if(e.target != vwClose){
-				
-					if(vw.classList.contains('vw--open')){
-						this.classList.remove('vw--open');
-						vwContent.muted = true;
-						vwContent.controls = false;
-						vwContent.loop = true;
-						
-					}else{
-						this.classList.add('vw--open');
-						vwContent.controls = true;
-						vwContent.muted=false;
-						vwContent.loop = false;
-					}
 
-				}else{
-					e.stopPropagation();
-					this.remove();
-				}
-			});
-			vwContent.addEventListener('ended', function(){
-				vw.classList.remove('vw--open');
-				vwContent.load();
-				vwContent.muted = true;
-				vwContent.controls = false;
-				vwContent.loop = true;
-			});
-			
-			
-			//- vwClose.addEventListener('click',function(e){
-				
-			//- });
-		}
+
