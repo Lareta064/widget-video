@@ -129,6 +129,7 @@ box-sizing: border-box;
 .aw-modal{
   display: none;
   position: fixed;
+  font-family: sans-serif;
   z-index: 9;
   top: 0;
   bottom: 0;
@@ -139,10 +140,83 @@ box-sizing: border-box;
   justify-content: center;
   align-items: center;
   .aw-modal__content{
+    position: relative;
+    
     background-color: #fff;
     width: 100%;
     max-width: 800px;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
   }
+    .aw-modal__title {
+      font-weight: 700;
+      margin-bottom: 32px;
+      font-size: 24px;
+    }
+    .aw-modal__close{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      color: black;
+      transform: rotate(45deg);
+      font-size: 34px;
+      z-index: 2;
+      cursor:pointer;
+    }
+}
+.aw-form{
+  
+  &__item{position: relative;}
+  input, textarea{
+    box-sizing:border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: black;
+    outline: none;
+    &:focus{outline: none;}
+    &::placeholder{
+      font-family: inherit;
+      font-size: inherit;
+      color: #999;
+    }
+  }
+  textarea{
+    resize: none;
+    padding: 16px;
+    height: 60px;
+  }
+  .aw-form__item +.aw-form__item{margin-top: 16px;}
+    .aw-form-btn{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      &>*+*{margin-left: 10px;}
+      text-transform: uppercase;
+      background-color: #e9161f;
+      border: 2px solid #e9161f;
+      border-radius: 5px;
+      transition: .3s;
+      color: white;
+      height: 60px;
+      padding-left: 35px;
+      font-size: 18px;
+      font-weight: 700;
+      padding-right: 35px;
+      cursor:pointer;
+      &:hover{
+        color: #e9161f;
+        background-color: #fff;
+      }
+    }
 }
 .aw-modal.visible{
   display: flex;

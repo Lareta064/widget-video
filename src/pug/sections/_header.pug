@@ -19,8 +19,9 @@
 	.aw-modals
 		.aw-modal(frame-modal="aw-form")
 			.aw-modal__content
+				.aw-modal__close(frame-close) +
 				.aw-modal__title Задайте ваш вопрос!
-				.aw-form
+				form.aw-form
 					.aw-form__item
 						input(type="text" placeholder="Имя")
 					.aw-form__item
@@ -30,7 +31,7 @@
 						textarea(type="text" placeholder="Сообщение")
 		
 					.aw-form__item
-						button(type="submit") Отправить
+						button.aw-form-btn(type="submit") Отправить
 		
 		.aw-modal(frame-modal="aw-download")
 			.aw-modal__content
