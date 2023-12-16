@@ -1,0 +1,71 @@
+extends ../layouts/layout.pug
+
+block content
+	.aw-wrapper
+		.aw
+			.aw__close
+				img(src="./img/aw/close-icon.svg", width="7" height="7" alt="icon")
+			.aw__content
+				.aw__option(frame-btn="aw-order")
+					img(src="./img/aw/phone.svg", alt="icon")
+					span Оставить<br>заявку
+				.aw__option(frame-btn="aw-download")
+					img(src="./img/aw/download.svg",   alt="icon")
+					span Скачать<br>прайс
+				a(href="#!" frame-btn).aw__option
+					img(src="./img/aw/viber.svg",   alt="icon")
+					span Написать в<br> viber
+				a(href="#!" frame-btn).aw__option
+					img(src="./img/aw/touch.svg",  alt="icon")
+					span Перейти к<br> прайсу
+
+		//=== modals ====
+		.aw-modals
+			.aw-modal.aw-modal--order(frame-modal="aw-order")
+				.aw-modal__content
+					.aw-modal__close(frame-close) +
+					.aw-modal__title Оставьте заявку<br>на расчет стоимости
+					.aw-modal__subtitle 
+						p Только телефон и мы в деле<br>Перезвоним через пару минут
+					
+					form.aw-form
+						.aw-form__item
+							label Выберите из списка нужную услугу
+							.form-select
+								.form-select__icon
+								input(type="text" name="userSelect" placeholder="Покупка сайта доставки еды" autocomplete="off")
+								ul.form-select__options
+									li.active Покупка сайта доставки еды
+									li Покупка сайта фотографа
+									li Покупка сайта доставки цветов
+									li Получить консультацию
+						.aw-form__item
+							input(type="text" placeholder="Телефон")
+						
+						.aw-form__item
+							textarea(type="text" placeholder="Сообщение")
+			
+						.aw-form__item
+							button.aw-form-btn(type="submit") Отправить
+			
+			.aw-modal(frame-modal="aw-download")
+				.aw-modal__content
+					.aw-modal__close(frame-close) +
+					.aw-modal__title Кликните, что бы скачать
+					.aw-modal__inner
+						a(href="./downl/doc1.pdf").dwnl-plate
+							p название документа для скачивания
+						a(href="./downl/doc1.pdf").dwnl-plate
+							p название документа для скачивания
+						a(href="./downl/doc1.pdf").dwnl-plate
+							p название документа для скачивания
+	//=============== скрипты vw===================	
+	script(src="js/aw.js")
+
+		
+			
+	
+	
+	
+block variables
+	-var title = "Page";

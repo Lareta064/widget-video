@@ -1,6 +1,6 @@
 .video-widget
 	
-	//===== widget  youtub link =======
+	//===== widget  youtube link =======
 	//- .vwy-wrapper
 	//- 	.video-widget__close
 	//- 	a(href="https://www.youtube.com/watch?v=qfglAdstYBs" target="_blank" style="background-image: url(./img/cat.webp)").vwy
@@ -25,110 +25,6 @@
 			data-src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/video.mp4"  
 			type="video/mp4" 
 			autoplay muted loop preload="auto" playsinline)
-.aw-wrapper
-	.aw
-		.aw__close
-			img(src="./img/aw/close-icon.svg", width="7" height="7" alt="icon")
-		.aw__option(frame-btn="aw-form")
-			img(src="./img/aw/phone.svg", alt="icon")
-			span Оставить<br>заявку
-		.aw__option(frame-btn="aw-download")
-			img(src="./img/aw/download.svg",   alt="icon")
-			span Скачать<br>прайс
-		a(href="#!" frame-btn).aw__option
-			img(src="./img/aw/viber.svg",   alt="icon")
-			span Написать в<br> viber
-		a(href="#!" frame-btn).aw__option
-			img(src="./img/aw/touch.svg",  alt="icon")
-			span Перейти к<br> прайсу
-
-	//=== modals ====
-	.aw-modals
-		.aw-modal(frame-modal="aw-form")
-			.aw-modal__content
-				.aw-modal__close(frame-close) +
-				.aw-modal__title Задайте ваш вопрос!
-				form.aw-form
-					.aw-form__item
-						input(type="text" placeholder="Имя")
-					.aw-form__item
-						input(type="text" placeholder="Телефон")
-					
-					.aw-form__item
-						textarea(type="text" placeholder="Сообщение")
 		
-					.aw-form__item
-						button.aw-form-btn(type="submit") Отправить
-		
-		.aw-modal(frame-modal="aw-download")
-			.aw-modal__content
-				.aw-modal__close(frame-close) +
-				.aw-modal__title Кликните, что бы скачать
-				.aw-modal__inner
-					a(href="./downl/doc1.pdf").dwnl-plate
-						p название документа для скачивания
-					a(href="./downl/doc1.pdf").dwnl-plate
-						p название документа для скачивания
-					a(href="./downl/doc1.pdf").dwnl-plate
-						p название документа для скачивания
-
-	script.
-	
-		const modalFramesOpen = document.querySelectorAll('[frame-btn]');
-		const modalFrames = document.querySelectorAll('[frame-modal]');
-		const bodyEl = document.body;
-		const awClose = document.querySelector('.aw__close');
-		setTimeout(function(){document.querySelector('.aw-wrapper').classList.add('visible')}, 4000);
-		awClose.addEventListener('click', function (){
-			this.closest('.aw-wrapper').classList.remove('visible');
-		});
-
-		if (modalFrames.length > 0) {
-			const modalFramesClose = document.querySelectorAll('[frame-close]');
-
-			for (let item of modalFramesOpen) {
-				item.addEventListener('click', function (e) {
-					console.log(123)
-					for (let item of modalFrames) {
-						item.classList.remove('visible');
-
-						bodyEl.classList.remove('lock');
-					}
-					e.preventDefault();
-					const itemAttr = item.getAttribute('frame-btn');
-					if(itemAttr !=''){
-						for (let frame of modalFrames) {
-							const frameAttr = frame.getAttribute('frame-modal');
-							if (frameAttr == itemAttr) {
-								frame.classList.add('visible');
-								bodyEl.classList.add('lock');
-
-							}
-						}
-					}
-				});
-			}
-			/*==  закрыть модалки  frame-modal по клику на крестик ======*/
-			for (let item of modalFramesClose) {
-				item.addEventListener('click', function (e) {
-					e.preventDefault();
-					item.closest('[frame-modal]').classList.remove('visible');
-					bodyEl.classList.remove('lock');
-
-
-				});
-			}
-			/*=============== закрыть модалки по клику вне ===============*/
-			for (let frame of modalFrames) {
-				frame.addEventListener('click', function (e) {
-					if (e.target === e.currentTarget) {
-						this.classList.remove(`visible`);
-						bodyEl.classList.remove('lock');
-					}
-				});
-			}
-		}
-
-
-
-
+	//=============== скрипты vw===================	
+	script(src="js/vw.js")
