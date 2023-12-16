@@ -12,7 +12,7 @@ if (modalFrames.length > 0) {
 
 	for (let item of modalFramesOpen) {
 		item.addEventListener('click', function (e) {
-			console.log(123)
+			
 			for (let item of modalFrames) {
 				item.classList.remove('visible');
 

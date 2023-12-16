@@ -16,6 +16,7 @@ body{background-color: #1b1b1b;}
     animation-duration:6s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    pointer-events: none;;
   }
   &:hover:after{
     animation: none;}
@@ -356,7 +357,11 @@ body{background-color: #1b1b1b;}
     bottom: 0;
     right: 0;
     background-color: rgba(0,0,0, .4);
+    
    }
+   @media (max-width: 767px) {
+      padding: 25px 20px 100px;
+    }
    &>*{
     z-index: 2;
     
@@ -374,6 +379,10 @@ body{background-color: #1b1b1b;}
       @media (max-width: 991px) {
       font-size: 30px;
       }
+      @media (max-width: 767px) {
+       font-size: 26px;
+       text-align: center;
+      }
       
    }
     .aw-modal__subtitle{
@@ -386,7 +395,10 @@ body{background-color: #1b1b1b;}
       @media (max-width: 991px) {
       font-size: 18px;
       } 
-      
+      @media (max-width: 991px) {
+        font-size: 16px;
+        text-align: left;
+      }
     }
    .aw-modal__decore{
     width: 110px;
@@ -399,7 +411,13 @@ body{background-color: #1b1b1b;}
     align-items: center;
     top: 50px;
     left: 50%;
-    
+    @media (max-width: 767px) {
+        top: auto;
+        bottom: 20px;
+        
+        width: 80px;
+        height: 80px;
+      }
     p{
       font-size: 10px;
       line-height: 1.5;
@@ -434,6 +452,10 @@ body{background-color: #1b1b1b;}
       transform: translate(-50%, -50%) rotate(0);
       z-index: 1;
       animation: rotate 15s infinite linear;
+      @media (max-width: 767px) {
+      width: 75px;
+        height: 75px;
+      }
     }
    }
 }
@@ -456,7 +478,8 @@ body{background-color: #1b1b1b;}
 .aw-form__grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:30px;
+  column-gap:30px;
+  row-gap:16px;
   @media (max-width: 991px) {
     grid-template-columns: 1fr 1fr;
   }
