@@ -21,6 +21,7 @@ block content
 
 		//=== modals ====
 		.aw-modals
+			//============modal #1=======
 			.aw-modal.aw-modal--order(frame-modal="aw-order")
 				.aw-modal__content
 					.aw-modal__close(frame-close) +
@@ -47,17 +48,35 @@ block content
 						.aw-form__footer
 							button.aw-form-btn.btn-blick(type="submit") Отправить
 			
-			.aw-modal(frame-modal="aw-download")
-				.aw-modal__content
+			//============modal #2=======
+			.aw-modal.aw-modal-downl(frame-modal="aw-download")
+				.aw-modal__content(style="background-image:url(./img/aw/bg.webp)")
 					.aw-modal__close(frame-close) +
-					.aw-modal__title Кликните, что бы скачать
-					.aw-modal__inner
-						a(href="./downl/doc1.pdf").dwnl-plate
-							p название документа для скачивания
-						a(href="./downl/doc1.pdf").dwnl-plate
-							p название документа для скачивания
-						a(href="./downl/doc1.pdf").dwnl-plate
-							p название документа для скачивания
+					.aw-modal__title Скачайте<br> подборку квартир<br>в 1 клик
+					.aw-modal__decore
+						img(src="./img/aw/pdf-circle.svg", alt="img")
+						p Обновлен
+							span 15.12.2023
+
+					form.aw-downl-form
+						.aw-form__grid
+							.form-select
+								.form-select__icon
+								input(type="text" name="userSelect" placeholder="Покупка сайта доставки еды" autocomplete="off")
+								ul.form-select__options
+									li Покупка сайта доставки еды
+									li Покупка сайта фотографа
+									li Покупка сайта доставки цветов
+									li Получить консультацию
+									li Получить консультацию
+									li Получить консультацию
+									li Получить консультацию
+							.aw-form__item
+								input(type="text" placeholder="Телефон")
+							.aw-form__footer
+								button.aw-form-btn.btn-blick(type="submit") 
+									span Получить каталог сейчас
+									img(src="./img/aw/arrow-top-right.svg", width="20" alt="icon")
 	//=============== скрипты vw===================	
 	script(src="js/aw.js")
 

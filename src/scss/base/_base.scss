@@ -5,29 +5,22 @@ body{background-color: #1b1b1b;}
   &:after{
     content:'';
     width: 20px;
-    height: 100px;
+    height: 150px;
     position: absolute;
-    left: -40px;
+    left: -70px;
     top:-30px;
     background-color: #fff;
     background: linear-gradient(223deg, rgba(255, 255, 255, 0.25) 6%, rgba(255, 255, 255, 0.75) 70%);
     transform: rotate(45deg);
     animation-name:blick;
-    animation-duration:4s;
+    animation-duration:8s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
   &:hover:after{
     animation: none;}
 }
-@keyframes blick{
-  0%{
-    left: -40px;
-  }
-  20%, 100% {
-      left: 115%;
-    }
-}
+
 .aw-wrapper.visible{
   .aw{
     transform: translate(0, -50%);
@@ -54,7 +47,7 @@ body{background-color: #1b1b1b;}
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: red;
+    background-color: #e9161f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +73,7 @@ body{background-color: #1b1b1b;}
    width: 70px;
    min-height: 60px;
    border-radius: 5px 0 0 5px;
-   background-color: red;
+   background-color: #e9161f;
    color: #fff;
    display: flex;
    flex-direction: column;
@@ -152,16 +145,18 @@ body{background-color: #1b1b1b;}
     max-width: 800px;
     padding: 50px;
     border-radius: 20px;
-    text-align: center;
+   
   }
     .aw-modal__title {
       font-weight: 700;
       margin-bottom: 0.75em;
       font-size: 20px;
+     
     }
     .aw-modal__subtitle{
       font-size: 14px;
       margin-bottom: 24px;
+      text-align: center;
     }
     .aw-modal__close{
       position: absolute;
@@ -177,9 +172,9 @@ body{background-color: #1b1b1b;}
 .aw-modal.aw-modal--order .aw-modal__content{
 max-width: 400px;
 padding: 25px;
+   .aw-modal__title{text-align: center;}
 }
-.aw-form{
-  text-align: left;
+.aw-form,.aw-downl-form{
   
   label{
     display: block;
@@ -215,7 +210,7 @@ padding: 25px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      white-space: nowrap;
+      
       &>*+*{margin-left: 10px;}
       min-width: 100%;
      
@@ -343,8 +338,110 @@ padding: 25px;
   transform: rotate(180deg);
 }
 
+.aw-modal.aw-modal-downl .aw-modal__content{
+   max-width: 1050px;
+   border-radius: 0;
+   background-size: cover;
+   padding: 50px;
+   position: relative;
+   color: #fff;
+   background-repeat: no-repeat;
+   &:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0, .4);
+   }
+   &>*{
+    z-index: 2;
+    position: relative;
+    
+   }
+     .aw-modal__close{color: #fff;}
+   .aw-modal__title{
+      font-size: 40px;
+      max-width: 420px;
+      position: relative;
+      
+   }
+   .aw-modal__decore{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    p{
+      font-size: 10px;
+      line-height: 1.5;
+      color: #e9161f;
+      text-align: center;
+      position: relative;
+      font-weight: 700;
+      z-index: 2;
+      padding-top: 10px;
+      &:after{
+        content:'';
+        width: 16px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        top: -6px;
+        left:50%;
+        transform:translateX(-50%);
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg class='circle-arrow' width='18' height='20' viewBox='0 0 18 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M16.7251 11.4014C16.7251 15.439 13.4884 18.7127 9.50133 18.7127C5.51426 18.7127 2.27751 15.4349 2.27751 11.3973C2.27751 7.35977 5.51426 4.08607 9.50133 4.08607C10.0681 4.08607 10.6348 4.15478 11.1856 4.28815L8.86276 6.64037L9.76474 7.55377L13.4924 3.77487L9.76873 0L8.86276 0.913404L10.8303 2.89379C6.19274 2.1461 1.83849 5.35109 1.10414 10.0474C0.369784 14.7438 3.53469 19.1492 8.1723 19.8928C12.8099 20.6365 17.1602 17.4315 17.8945 12.7351C17.9624 12.2946 17.9983 11.846 17.9983 11.3973H16.7251V11.4014Z' fill='%23e9161f'%3e%3c/path%3e%3c/svg%3e");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:12px;
+      }
+      span{display: block;}
+    }
+    img{
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0);
+      z-index: 1;
+      animation: rotate 15s infinite linear;
+    }
+   }
+}
+@keyframes blick {
+  0% {
+    left: -40px;
+  }
 
+  60%,
+  100% {
+    left: 115%;
+  }
+}
 
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.aw-form__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:30px;
+}
+.aw-downl-form{
+  input, .aw-form-btn{
+    height: 70px;
+  }
+}
 /*video-widget*/
 .video-widget{
   position: fixed;
