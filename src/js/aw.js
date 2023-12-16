@@ -2,7 +2,7 @@ const modalFramesOpen = document.querySelectorAll('[frame-btn]');
 const modalFrames = document.querySelectorAll('[frame-modal]');
 const bodyEl = document.body;
 const awClose = document.querySelector('.aw__close');
-setTimeout(function () { document.querySelector('.aw-wrapper').classList.add('visible') }, 4000);
+setTimeout(function () { document.querySelector('.aw-wrapper').classList.add('visible') }, 2000);
 awClose.addEventListener('click', function () {
 	this.closest('.aw-wrapper').classList.toggle('aw-collapse');
 });

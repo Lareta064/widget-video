@@ -47,7 +47,10 @@ block content
 							input(type="text" placeholder="Телефон")
 						.aw-form__footer
 							button.aw-form-btn.btn-blick(type="submit") Отправить
-			
+							label.aw-confirm-checkbox
+								input(type="checkbox")
+								span.fake-chbx
+								span Cогласен с условиями #[a(href="#!") политики конфиденциальности данных]
 			//============modal #2=======
 			.aw-modal.aw-modal-downl(frame-modal="aw-download")
 				.aw-modal__content(style="background-image:url(./img/aw/bg.webp)")
@@ -74,6 +77,11 @@ block content
 								button.aw-form-btn.btn-blick(type="submit") 
 									span Получить каталог сейчас
 									img(src="./img/aw/arrow-top-right.svg", width="20" alt="icon")
+						label.aw-confirm-checkbox
+							input(type="checkbox")
+							span.fake-chbx
+							span Cогласен с условиями #[a(href="#!") политики конфиденциальности данных]
+								
 	//=============== скрипты vw===================	
 	script(src="js/aw.js")
 
