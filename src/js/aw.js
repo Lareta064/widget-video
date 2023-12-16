@@ -53,39 +53,41 @@ if (modalFrames.length > 0) {
 	}
 }
 // CUSTOM SELECT
-const selectElement = document.querySelector('.form-select');
-if (selectElement) {
-	const selectInput = selectElement.querySelector('input');
-	const selectOptions = selectElement.querySelector('.form-select__options');
-	const selectArrow = selectElement.querySelector('.form-select__icon');
+const selectElements = document.querySelectorAll('.form-select');
+if (selectElements.length>0) {
+	for (let selectElement of selectElements){
+		const selectInput = selectElement.querySelector('input');
+		const selectOptions = selectElement.querySelector('.form-select__options');
+		const selectArrow = selectElement.querySelector('.form-select__icon');
 
 
 
-	selectArrow.addEventListener('click', function () {
+		selectArrow.addEventListener('click', function () {
 
-		if (selectOptions.classList.contains('active')) {
-			this.classList.remove('rotate');
-			selectOptions.classList.remove('active');
-		} else {
-			this.classList.add('rotate');
-			selectOptions.classList.add('active');
-		}
-
-	});
-
-	//клик по выпадающему списку селекта
-	selectOptions.addEventListener('click', function (e) {
-		const selectItems = selectOptions.querySelectorAll('li');
-		if (e.target.tagName == 'LI') {
-			selectInput.value = e.target.textContent;
-			for(let item of selectItems){
-				item.classList.remove('active');
+			if (selectOptions.classList.contains('active')) {
+				this.classList.remove('rotate');
+				selectOptions.classList.remove('active');
+			} else {
+				this.classList.add('rotate');
+				selectOptions.classList.add('active');
 			}
-			e.target.classList.add('active');
-			this.classList.remove('active');
-			selectArrow.classList.remove('rotate');
-			
-		}
 
-	});
+		});
+
+		//клик по выпадающему списку селекта
+		selectOptions.addEventListener('click', function (e) {
+			const selectItems = selectOptions.querySelectorAll('li');
+			if (e.target.tagName == 'LI') {
+				selectInput.value = e.target.textContent;
+				for(let item of selectItems){
+					item.classList.remove('active');
+				}
+				e.target.classList.add('active');
+				this.classList.remove('active');
+				selectArrow.classList.remove('rotate');
+				
+			}
+
+		});
+	}
 }
