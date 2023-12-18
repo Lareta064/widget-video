@@ -1,30 +1,37 @@
 .video-widget
 	
 	//===== widget  youtube link =======
-	//- .vwy-wrapper
-	//- 	.video-widget__close
-	//- 	a(href="https://www.youtube.com/watch?v=qfglAdstYBs" target="_blank" style="background-image: url(./img/cat.webp)").vwy
-	//- 		.vwy__btn
-	//- 			span
-	//- 			.lds-dual-ring
+	.vwy-wrapper
+		.video-widget__close
+		a(href="https://www.youtube.com/watch?v=qfglAdstYBs" target="_blank" style="background-image: url(./img/video-widget/cat.webp)").vwy
+			.vwy__btn
+				span
+				.lds-dual-ring
 			
 
 	//===== widget mp4 =========
 	.vw
-		.video-widget__close.vw__close
-		.video__collapse
 		
-		//- //=========  если пользователь добавляет превью в виде gif (есть атрибут poster  у тега video)
-		//- video#vw-video( src="./video/video.mp4" type="video/mp4"  preload="auto" playsinline poster="https://img.freepik.com/free-photo/adorable-looking-kitten-with-yarn_23-2150886292.jpg?size=626&ext=jpg")
+		
+		#vw-video-poster
+			.video-widget__close.vw__close
+			.video__collapse
+			//=========  если пользователь добавляет превью в виде gif (есть атрибут poster  у тега video)
+			video#vw-video(  src="./video/video.mp4" type="video/mp4"  preload="auto" playsinline poster="https://img.freepik.com/free-photo/adorable-looking-kitten-with-yarn_23-2150886292.jpg?size=626&ext=jpg")
+				
+		
+		
+		#vw-video-poster
+			.video-widget__close.vw__close
+			.video__collapse
+			//=========  если пользователь добавляет превью в виде короткого mp4 (нет атрибута poster, но появляется атрибут data-src  в который прописан путь до полного видео, а в атрибут src   и  data-preview вписан путь до короткого видео-превью )
 			
-		
-		//=========  если пользователь добавляет превью в виде короткого mp4 (нет атрибута poster, но появляется атрибут data-src  в который прописан путь до полного видео, а в атрибут src   и  data-preview вписан путь до короткого видео-превью )
-		video#vw-video(
-			src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
-			data-preview="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
-			data-src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/video.mp4"  
-			type="video/mp4" 
-			autoplay muted loop preload="auto" playsinline)
+			video#vw-video(
+				src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
+				data-preview="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/preview.mp4" 
+				data-src="https://vcdn.getreview.dev/getreview-videos/videos/4ytBfDs1gfcBoW79/transcoded/original/720/mp4/uadIXxmKSLlv1kXf/video.mp4"  
+				type="video/mp4" 
+				autoplay muted loop preload="auto" playsinline)
 		
 	//=============== скрипты vw===================	
 	script(src="js/vw.js")

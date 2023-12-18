@@ -9,13 +9,7 @@ if (vidWidget){
 		})
 	}
 
-	/*===== widget as link for youtube ======  */
-	const vwy = vidWidget.querySelector('.vwy-wrapper');
-	if (vwy) {
-		vwy.querySelector('.vwy__close').addEventListener('click', function (e) {
-			vwy.remove();
-		});
-	}
+	
 
 	/*===== widget as mp4 clip ======  */
 	const vw = vidWidget.querySelector('.vw');
