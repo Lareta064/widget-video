@@ -1,4 +1,8 @@
 /*video-widget*/
+
+.d-none {
+	display: none!important;
+}
 .video-widget {
 	position: fixed;
 	bottom: 60px;
@@ -174,7 +178,7 @@
 			transform: translate(-50%, -50%);
 			border-radius: 50%;
 			background-color: #e9161f;
-			background-image: url('../imgvideo-vidget/play-ico.svg');
+			background-image: url('../img/video-widget/play-ico.svg');
 			background-size: 24px;
 			background-repeat: no-repeat;
 			background-position: center;
